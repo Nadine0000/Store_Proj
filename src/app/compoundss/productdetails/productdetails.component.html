@@ -1,0 +1,17 @@
+@if(!product){
+    <span>wrong product id</span>
+}
+@else {
+    <button  class ="btn btn-danger" (click)="goBack()"> Go Back</button>
+    <h1>{{product.name}}</h1>
+    <div class="fortext">
+    <img class="img" [src]= "product.image"   >
+    <p>{{product.description}}</p>
+    <p>{{product.quantity}}</p>
+    <p>{{product.price}}</p>
+    <div class="mt-4 d-flex align-items-center gap-4 " >
+        <button  [disabled]="isfirst" class=" btn btn-warning  "(click)='getpre(product.id)' >back</button>
+        <button [disabled]="islastindex" class="btn btn-success"(click)="gonext(product.id)">Next</button>
+    </div>
+</div>
+}

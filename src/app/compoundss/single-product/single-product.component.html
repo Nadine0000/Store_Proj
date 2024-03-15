@@ -1,0 +1,53 @@
+<div class="card "  Forstyle    [ngClass]="{'bg-warning': product.quantity==1} " (click)="handleroute(product.id)"    [quantity]="product.quantity"   >
+    @if(product.quantity==0){
+
+      <div class="overlay"></div>
+    }
+
+    <img [src]=product.image    class="card-img-top" alt="..." (click)="handleroute(product.id) "  >
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text">{{product.purchaseDate|date}}</p>
+
+      <p class="card-text">{{product.description}}.</p>
+      <p class="card-text">{{product.price}}.</p>
+
+      <!--<p>{{currentdate|date}}</p>--><!--pipe for the date-->
+      @if(product.quantity>1){
+      <p class="card-text">{{product.quantity}} items available</p>}
+      @else if (product.quantity===1) {
+        <p class="card-text">{{product.quantity}} item left</p>
+      }
+      @else   {
+        <p class="card-text">{{product.quantity}}  items</p>
+      }
+
+      <button class="btn btn-primary" (click)="dec(product)" (click)="addProductToCart($event,product)" [disabled]="product.quantity == 0">Add To Cart</button>
+
+      @if(product.quantity==0){
+        <p class="text-danger
+       " >out of stock-coming soon</p>
+
+       }
+    @if(product.quantity==1){
+
+      <p class="text-warning  " >only one item left-</p>
+    }
+   @if(product.quantity>=2){
+    <p class="text-success">in stock</p>
+   }
+     <!--   @switch(product.quantity){
+      @case(1){
+        <p text-warning>last piece</p>
+      }
+      @case(2){
+        <p text-warning>last two</p>
+      }
+      @case(3){
+        <p text-warning>in stock</p>
+      }
+      @case(0){
+        <p text-danger>out of stock</p>
+      }
+     } --->
+

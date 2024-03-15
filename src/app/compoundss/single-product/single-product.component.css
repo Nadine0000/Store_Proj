@@ -1,0 +1,23 @@
+.overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.724);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.overlay::after{
+  
+    content: "out of stock";
+    color: rgb(255, 0, 0);
+  text-decoration-line: underline;
+ 
+}
+.card {
+    position: relative;
+    cursor: pointer;
+
+}
+

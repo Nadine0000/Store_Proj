@@ -1,0 +1,19 @@
+.img{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin:auto;
+}
+h1{text-align: center;}
+.fortext{
+    text-align: center;
+}
+.mt-4{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    
+   
+}

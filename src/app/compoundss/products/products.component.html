@@ -1,0 +1,43 @@
+
+
+
+<div>
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Search by product name">
+</div>
+
+<select name="all categories" id="" [(ngModel)]="selectedCategoryId"  (ngModelChange)="filterByCategory(selectedCategoryId)">
+
+ <!--@for(item of Categories;track $index )-->
+    <option value="1">classic </option>
+    <option value="2">trendy </option>
+    <option value="3">70's </option>
+
+</select>
+
+
+
+
+<div class="products-container">
+ <!-- @if(filteredProducts.length==0){
+    <h3>no products found here!</h3>
+  }-->
+
+<!--[ngClass]="{'bg-warning': product.quantity==1,'bg-success':product.quantity>1"} --><!--bieegy error lama adkhlha gowa l div-->
+
+
+@if(selectedCategoryId==null){
+<!--@if(searchTerm!=null){-->
+  @for(parentproduct of getFilteredProductsByName();track parentproduct.id  ){
+
+    <app-single-product [product]="parentproduct"></app-single-product>
+
+  }
+}
+
+@if(selectedCategoryId!=null){
+  @for(parentproduct of filteredProducts;track parentproduct.id  ){
+
+    <app-single-product [product]="parentproduct"></app-single-product>
+
+  }}
+</div>
